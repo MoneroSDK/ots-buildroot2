@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-MONERO_OTS_VERSION = 0.1.0
+MONERO_OTS_VERSION = 0.2.0
 MONERO_OTS_SOURCE = ots-$(MONERO_OTS_VERSION).tar.gz
 MONERO_OTS_SITE = https://github.com/DiosDelRayo/monero/archive/refs/tags
 MONERO_OTS_LICENSE = BipCot-1.3
