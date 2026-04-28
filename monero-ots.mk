@@ -10,6 +10,11 @@ MONERO_OTS_SITE = https://github.com/DiosDelRayo/monero/archive/refs/tags
 MONERO_OTS_LICENSE = BipCot-1.3
 MONERO_OTS_LICENSE_FILES = LICENSE
 MONERO_OTS_DEPENDENCIES = boost openssl
+MONERO_OTS_DEPENDENCIES += $(if $(BR2_PACKAGE_BOOST_FILESYSTEM),boost-filesystem)
+MONERO_OTS_DEPENDENCIES += $(if $(BR2_PACKAGE_BOOST_THREAD),boost-thread)
+MONERO_OTS_DEPENDENCIES += $(if $(BR2_PACKAGE_BOOST_SYSTEM),boost-system)
+MONERO_OTS_DEPENDENCIES += $(if $(BR2_PACKAGE_BOOST_CHRONO),boost-chrono)
+MONERO_OTS_DEPENDENCIES += $(if $(BR2_PACKAGE_BOOST_SERIALIZATION),boost-serialization)
 MONERO_OTS_SUBDIR = ots
 
 # We need to include the Monero source directory
