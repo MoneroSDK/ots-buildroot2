@@ -20,10 +20,10 @@ $(HASH_FILE): $(TAR)
 
 $(BUILD_DIR): $(TEMP_DIR)
 	mkdir -p build
-	@cd build
+	cd build
 	cmake ../$(TEMP_DIR)/ots/CMakeLists.txt
 	make
-	@cd ..
+	cd ..
 
 .PHONY: clean
 clean:
