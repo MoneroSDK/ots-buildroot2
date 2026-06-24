@@ -19,7 +19,7 @@ $(TAR): $(TEMP_DIR)
 
 $(HASH_FILE): $(TAR)
 	@echo -n 'sha256  ' > $(HASH_FILE)
-	@sha256sum $($TAR) >> $(HASH_FILE)
+	@sha256sum $(TAR) >> $(HASH_FILE)
 	@awk '{ print $$2 }' $(HASH_FILE)
 
 $(BUILD_DIR): $(TEMP_DIR)
