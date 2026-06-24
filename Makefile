@@ -20,11 +20,12 @@ $(HASH_FILE): $(TAR)
 
 $(BUILD_DIR): $(TEMP_DIR)
 	mkdir -p build
-	cd build
-	cmake ../$(TEMP_DIR)/ots/CMakeLists.txt
-	make
-	cd ..
+	cd build && cmake ../$(TEMP_DIR)/ots/CMakeLists.txt && make && cd ..
 
 .PHONY: clean
 clean:
 	rm -rf $(TEMP_DIR) $(TAR)
+
+.PHONY: clean-build-mess
+clean-build-mess:
+	rm -rf $$(git status | grep -E '\s+[a-zA-Z0-9\.-_]+/?')
