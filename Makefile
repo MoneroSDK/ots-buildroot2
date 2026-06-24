@@ -1,6 +1,6 @@
 REPO := https://github.com/DiosDelRayo/monero.git
 VERSION := 0.4.0
-TAG := libots-$(VERSION)
+TAG := otslib-$(VERSION)
 TARGET := monero-$(TAG)
 TAR := $(TARGET).tar.gz
 TEMP_DIR := monero-ots
