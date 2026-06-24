@@ -9,7 +9,7 @@ HASH_FILE := monero-ots.hash
 
 
 $(TEMP_DIR):
-	git clone --revision=refs/tag/$(TAG) --recursive $(REPO) $(TEMP_DIR)
+	git clone --revision=refs/tags/$(TAG) --recursive $(REPO) $(TEMP_DIR)
 
 $(TAR): $(TEMP_DIR)
 	tar -c -z --exclude-vcs-ignores --exclude-vcs --exclude-caches --exclude-backups --transform='s/^$(TEMP_DIR)/$(TARGET)/' -f $(TAR) $(TEMP_DIR)
