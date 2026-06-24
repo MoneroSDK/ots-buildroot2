@@ -45,7 +45,7 @@ This package is part of the MoneroSDK ecosystem:
 The package supports the following configuration options:
 
 - Build options are set to minimize dependencies and build size:
-  - Shared libraries are disabled
+  - Shared libraries because of python cffi seems to support only shared libraries
   - Tests are disabled
   - Documentation is not built
   - Additional tools (v1sign, blocktime, bin_header_macro) are disabled
@@ -57,6 +57,8 @@ The package supports the following configuration options:
 - C++ standard library
 - Threads
 - Wide character support
+- libunwind
+- libzmq
 
 ## License
 
