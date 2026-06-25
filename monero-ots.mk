@@ -5,8 +5,10 @@
 ################################################################################
 
 MONERO_OTS_VERSION = 0.4.0
-MONERO_OTS_SOURCE = otslib-$(MONERO_OTS_VERSION).tar.gz
-MONERO_OTS_SITE = https://github.com/DiosDelRayo/monero/archive/refs/tags
+# MONERO_OTS_SOURCE = otslib-$(MONERO_OTS_VERSION).tar.gz
+# MONERO_OTS_SITE = https://github.com/DiosDelRayo/monero/archive/refs/tags
+MONERO_OTS_SOURCE = otslib-$(MONERO_OTS_VERSION)/monero-otslib-$(MONERO_OTS_VERSION).tar.gz
+MONERO_OTS_SITE = https://github.com/DiosDelRayo/monero/releases/download/$(MONERO_OTS_SOURCE)
 MONERO_OTS_LICENSE = BipCot-1.3
 MONERO_OTS_LICENSE_FILES = LICENSE
 MONERO_OTS_DEPENDENCIES = boost openssl libsodium libunwind unbound
