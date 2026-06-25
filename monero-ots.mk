@@ -7,24 +7,21 @@
 MONERO_OTS_VERSION = 0.4.0
 # MONERO_OTS_SOURCE = otslib-$(MONERO_OTS_VERSION).tar.gz
 # MONERO_OTS_SITE = https://github.com/DiosDelRayo/monero/archive/refs/tags
-MONERO_OTS_SOURCE = otslib-$(MONERO_OTS_VERSION)/monero-otslib-$(MONERO_OTS_VERSION).tar.gz
-MONERO_OTS_SITE = https://github.com/DiosDelRayo/monero/releases/download/$(MONERO_OTS_SOURCE)
+MONERO_OTS_SOURCE = monero-otslib-$(MONERO_OTS_VERSION).tar.gz
+MONERO_OTS_SITE = https://github.com/MoneroSDK/monero-ots/releases/download/otslib-$(MONERO_OTS_VERSION)
 MONERO_OTS_LICENSE = BipCot-1.3
 MONERO_OTS_LICENSE_FILES = LICENSE
-MONERO_OTS_DEPENDENCIES = boost openssl libsodium libunwind unbound
-MONERO_OTS_DEPENDENCIES += $(if $(BR2_PACKAGE_BOOST_FILESYSTEM),boost-filesystem)
-MONERO_OTS_DEPENDENCIES += $(if $(BR2_PACKAGE_BOOST_THREAD),boost-thread)
-MONERO_OTS_DEPENDENCIES += $(if $(BR2_PACKAGE_BOOST_SYSTEM),boost-system)
-MONERO_OTS_DEPENDENCIES += $(if $(BR2_PACKAGE_BOOST_CHRONO),boost-chrono)
-MONERO_OTS_DEPENDENCIES += $(if $(BR2_PACKAGE_BOOST_SERIALIZATION),boost-serialization)
-MONERO_OTS_DEPENDENCIES += $(if $(BR2_PACKAGE_ZEROMQ),zeromq)
+MONERO_OTS_DEPENDENCIES = boost openssl libsodium libunwind unbound zeromq
+# MONERO_OTS_DEPENDENCIES += $(if $(BR2_PACKAGE_BOOST_FILESYSTEM),boost-filesystem)
+# MONERO_OTS_DEPENDENCIES += $(if $(BR2_PACKAGE_BOOST_THREAD),boost-thread)
+# MONERO_OTS_DEPENDENCIES += $(if $(BR2_PACKAGE_BOOST_SYSTEM),boost-system)
+# MONERO_OTS_DEPENDENCIES += $(if $(BR2_PACKAGE_BOOST_CHRONO),boost-chrono)
+# MONERO_OTS_DEPENDENCIES += $(if $(BR2_PACKAGE_BOOST_SERIALIZATION),boost-serialization)
+# MONERO_OTS_DEPENDENCIES += $(if $(BR2_PACKAGE_ZEROMQ),zeromq)
 MONERO_OTS_SUBDIR = ots
 
-# We need to include the Monero source directory
-MONERO_OTS_CONF_OPTS = -DMONERO_SOURCE_DIR=$(MONERO_OTS_SRCDIR)
-
 # Options
-MONERO_OTS_CONF_OPTS += -DBUILD_SHARED_LIBS=ON
+MONERO_OTS_CONF_OPTS = -DBUILD_SHARED_LIBS=ON
 
 # Use ccache if enabled
 ifeq ($(BR2_CCACHE),y)
