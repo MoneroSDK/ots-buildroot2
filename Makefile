@@ -44,6 +44,6 @@ clean-all: clean clean-tar clean-hash
 .PHONY: test
 test: $(TAR) $(HASH_FILE)
 	@mv $(TAR) $(TAR)~orig
-	@wget -L -o $(TAG) "$(DL_URL)"
+	@wget -L -o $(TAR) "$(DL_URL)"
 	@awk '{ print $$2"  $(TAR)"}' $(HASH_FILE) | sha256sum -c -
 	@mv $(TAR)~orig $(TAR)
