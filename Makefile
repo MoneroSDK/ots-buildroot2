@@ -7,7 +7,7 @@ BUILD_DIR := build
 HASH_FILE := monero-ots.hash
 DL_URL := https://github.com/MoneroSDK/monero-ots/releases/download/$(TAG)/$(TAR)
 
-default: clean-$(HASH_FILE) $(HASH_FILE)
+default: clean-hash $(HASH_FILE)
 
 all: clean-all $(BUILD_DIR) $(HASH_FILE)
 
