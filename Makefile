@@ -1,29 +1,33 @@
 REPO := https://github.com/DiosDelRayo/monero.git
-VERSION := 0.4.0
+VERSION := 0.4.1
 TAG := otslib-$(VERSION)
-TARGET := monero-$(TAG)
-TAR := $(TARGET).tar.gz
-TEMP_DIR := monero-ots
-BUILD_DIR := build
+TAR = $(TAG).tar.gz
+SITE = https://github.com/MoneroSDK/monero-ots/archive/refs/tags
+URL := $(SITE)/$(TAR)
+BUILD_DIR := build-$(TAG)
 HASH_FILE := monero-ots.hash
+TEMP_DIR := monero-ots-$(TAG)
 
 default: clean-$(HASH_FILE) $(HASH_FILE)
 
 all: clean-all $(BUILD_DIR) $(HASH_FILE)
 
-$(TEMP_DIR):
-	git clone --revision=refs/tags/$(TAG) --recursive $(REPO) $(TEMP_DIR)
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
 
-$(TAR): $(TEMP_DIR)
-	tar -c -z --exclude-vcs-ignores --exclude-vcs --exclude-caches --exclude-backups --transform='s/^$(TEMP_DIR)/$(TARGET)/' -f $(TAR) $(TEMP_DIR)
+$(TAR):
+	wget -L "$(URL)"
 
 $(HASH_FILE): $(TAR)
 	@echo -n 'sha256  ' > $(HASH_FILE)
 	@sha256sum $(TAR) >> $(HASH_FILE)
 	@awk '{ print $$2 }' $(HASH_FILE)
 
-$(BUILD_DIR): $(TEMP_DIR)
-	mkdir -p build
+$(TEMP_DIR): $(TAR)
+	tar -xzf $(TAR)
+
+.PHONY: build
+build: $(TEMP_DIR) $(BUILD_DIR)
 	cd build && cmake ../$(TEMP_DIR)/ots/CMakeLists.txt && make && cd ..
 
 .PHONY: clean
