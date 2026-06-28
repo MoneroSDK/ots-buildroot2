@@ -6,7 +6,7 @@
 
 MONERO_OTS_VERSION = 0.4.1
 MONERO_OTS_SOURCE = otslib-$(MONERO_OTS_VERSION).tar.gz
-MONERO_OTS_SITE = https://github.com/MoneroSDK/monero-ots/archive/refs/tags
+MONERO_OTS_SITE = https://github.com/MoneroSDK/monero-ots/releases/download/otslib-$(MONERO_OTS_VERSION)
 MONERO_OTS_LICENSE = BipCot-1.3
 MONERO_OTS_LICENSE_FILES = LICENSE
 MONERO_OTS_DEPENDENCIES = boost openssl libsodium libunwind unbound zeromq
