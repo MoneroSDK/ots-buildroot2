@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-MONERO_OTS_VERSION = 0.4.1
+MONERO_OTS_VERSION = 0.4.2
 MONERO_OTS_SOURCE = otslib-$(MONERO_OTS_VERSION).tar.gz
 MONERO_OTS_SITE = https://github.com/MoneroSDK/monero-ots/releases/download/otslib-$(MONERO_OTS_VERSION)
 MONERO_OTS_LICENSE = BipCot-1.3
